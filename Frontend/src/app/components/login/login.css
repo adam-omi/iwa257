@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Tło na całą stronę */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Główna karta logowania */
+.login-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  box-sizing: border-box;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Animacja wejścia */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Nagłówki */
+.login-card h2 {
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.login-card p.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Grupy inputów */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+/* Przyciski */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Link do przełączania trybów */
+.toggle-mode {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #666;
+}
+
+.toggle-mode span {
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.toggle-mode span:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Wybór roli (checkbox/radio) */
+.role-selector {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.role-selector label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 400;
+  cursor: pointer;
+}

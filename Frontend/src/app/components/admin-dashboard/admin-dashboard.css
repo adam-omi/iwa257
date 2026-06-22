@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.dashboard-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* Pasek Nawigacji (Navbar) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+}
+
+.navbar h2 {
+  margin: 0;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* Karty (Cards) */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Formularze */
+.form-control {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+/* Przyciski */
+.btn-primary, .btn-success, .btn-danger, .btn-secondary {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: inherit;
+  transition: 0.3s;
+  color: white;
+}
+
+.btn-primary { background: #007bff; width: 100%; }
+.btn-primary:hover { background: #0056b3; }
+
+.btn-success { background: #28a745; }
+.btn-success:hover { background: #218838; }
+
+.btn-danger { background: #dc3545; }
+.btn-danger:hover { background: #c82333; }
+
+.btn-secondary { background: #6c757d; font-size: 12px; padding: 6px 12px; }
+.btn-secondary:hover { background: #5a6268; }
+
+/* Tabele */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th {
+  background: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  font-size: 14px;
+}
+
+.custom-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+  color: #444;
+  font-size: 14px;
+}
+
+.custom-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.text-danger {
+  color: #dc3545;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

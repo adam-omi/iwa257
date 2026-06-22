@@ -1,0 +1,73 @@
+<div class="login-page">
+  <div class="login-card">
+    
+    <h2>E-Dziennik</h2>
+    <p class="subtitle" *ngIf="isLoginMode">Witaj ponownie! Zaloguj się na swoje konto.</p>
+    <p class="subtitle" *ngIf="!isLoginMode">Dołącz do naszej uczelni. Załóż darmowe konto.</p>
+
+    <form *ngIf="isLoginMode" (ngSubmit)="onLoginSubmit()">
+      <div class="form-group">
+        <label>Nazwa użytkownika (Login)</label>
+        <input type="text" name="loginUsername" [(ngModel)]="loginForm.username" class="form-control" placeholder="Wpisz swój login" required>
+      </div>
+
+      <div class="form-group">
+        <label>Hasło</label>
+        <input type="password" name="loginPassword" [(ngModel)]="loginForm.password" class="form-control" placeholder="Wpisz swoje hasło" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Zaloguj się</button>
+      
+      <div class="toggle-mode">
+        Nie masz jeszcze konta? <span (click)="isLoginMode = false">Zarejestruj się</span>
+      </div>
+    </form>
+
+
+    <form *ngIf="!isLoginMode" (ngSubmit)="onSignupSubmit()">
+      <div class="form-group">
+        <label>Imię i Nazwisko</label>
+        <input type="text" name="signupName" [(ngModel)]="signupForm.name" class="form-control" placeholder="Jan Kowalski" required>
+      </div>
+
+      <div class="form-group">
+        <label>Adres E-mail</label>
+        <input type="email" name="signupEmail" [(ngModel)]="signupForm.email" class="form-control" placeholder="jan@uczelnia.pl" required>
+      </div>
+
+      <div class="form-group">
+        <label>Nazwa użytkownika</label>
+        <input type="text" name="signupUsername" [(ngModel)]="signupForm.username" class="form-control" placeholder="Wymyśl login" required>
+      </div>
+
+      <div class="form-group">
+        <label>Hasło</label>
+        <input type="password" name="signupPassword" [(ngModel)]="signupForm.password" class="form-control" placeholder="Minimum 6 znaków" required>
+      </div>
+
+      <div class="form-group">
+        <label>Typ konta:</label>
+        <div class="role-selector">
+          <label>
+            <input type="radio" name="role" [(ngModel)]="signupForm.role" value="student"> Uczeń
+          </label>
+          <label>
+            <input type="radio" name="role" [(ngModel)]="signupForm.role" value="admin"> Nauczyciel
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="signupForm.role.includes('admin')">
+        <label style="color: #dc3545;">Tajny kod autoryzacyjny dla nauczycieli</label>
+        <input type="password" name="secretCode" [(ngModel)]="signupForm.adminSecret" class="form-control" placeholder="Wpisz kod od administratora" style="border-color: #f5c6cb;">
+      </div>
+
+      <button type="submit" class="btn-primary">Utwórz konto</button>
+      
+      <div class="toggle-mode">
+        Masz już konto? <span (click)="isLoginMode = true">Wróć do logowania</span>
+      </div>
+    </form>
+
+  </div>
+</div>

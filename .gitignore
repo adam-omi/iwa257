@@ -1,0 +1,23 @@
+# ==========================================
+# NIEZNISZCZALNY GITIGNORE - FRONTEND & BACKEND
+# ==========================================
+
+# 1. Środowiska programistyczne (IDE) i śmieci systemowe
+**/.idea/
+**/.vscode/
+**/*.iml
+**/*.log
+.DS_Store
+Thumbs.db
+
+# 2. BACKEND (Spring Boot / Java)
+**/target/
+### Zostawiamy pliki uruchomieniowe Mavena (dobre praktyki)
+!**/mvnw
+!**/mvnw.cmd
+!**/.mvn/wrapper/maven-wrapper.jar
+
+# 3. FRONTEND (Angular)
+**/node_modules/
+**/dist/
+**/.angular/

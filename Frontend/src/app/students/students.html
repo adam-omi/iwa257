@@ -1,0 +1,66 @@
+<h2>Students</h2>
+<div>
+  <label>Student firstname:
+    <input #studentFirstName />
+  </label>
+  <br>
+  <label>Student lastname:
+    <input #studentLastName />
+  </label>
+  <br>
+  <label>Student email:
+    <input #studentEmail />
+  </label>
+  <br>
+  <label>Student telephone:
+    <input #studentTelephone />
+  </label>
+  <br>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(studentFirstName.value, studentLastName.value, studentEmail.value, studentTelephone.value);
+                  studentFirstName.value=''; studentLastName.value=''; studentEmail.value=''; studentTelephone.value=''">
+    Add new student
+  </button>
+</div>
+  @for (student of studentList(); track student.id; let isFirst = $first; let isLast = $last){
+    @if (isFirst) { <h2>The list of students:</h2> }
+  <li>
+    {{student.id}} {{ student.firstname }} {{ student.lastname }} {{ student.email }} {{ student.telephone }}
+    <button title="delete" (click)="delete(student)">Delete</button>
+    <button title="update" (click)="update(studentFirstName.value,studentLastName.value, studentEmail.value, studentTelephone.value, student);
+                            studentFirstName.value=''; studentLastName.value=''; studentEmail.value=''; studentTelephone.value=''">
+      Update
+    </button>
+  </li>
+    @if (isLast) { <br> <button title="delete all" (click)="deleteAll()">delete all</button> }
+  } @empty {
+    The collection is empty.
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+<div class="dashboard-container">
+  
+  <div class="navbar">
+    <h2>E-Dziennik | Zarządzanie Przedmiotem</h2>
+    <button class="btn-secondary" (click)="goBack()">&larr; Wróć do Panelu</button>
+  </div>
+
+  <div class="content-wrapper">
+    
+    <div class="card">
+      <div class="card-header">
+        <h3>Dziennik Ocen: <span *ngIf="subjectDetails" style="color: #333;">{{ subjectDetails.name }}</span></h3>
+      </div>
+
+      <table class="journal-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Uczeń</th>
+            <th style="width: 50%;">Oceny z przedmiotu</th>
+            <th style="width: 25%;">Wystaw nową</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of enrolledStudents">
+            <td><strong>{{ student.name ? student.name : student.username }}</strong></td>
+            
+            <td>
+              <span *ngFor="let grade of studentGrades[student.id]" class="grade-pill">
+                {{ grade.value | number:'1.1-1' }}
+              </span>
+              <span *ngIf="!studentGrades[student.id] || studentGrades[student.id].length === 0" class="empty-grades">
+                Brak wystawionych ocen
+              </span>
+            </td>
+
+            <td>
+              <div class="flex-group">
+                <select [(ngModel)]="inlineGrades[student.id]" class="inline-select">
+                  <option [ngValue]="undefined" disabled selected>Wybierz</option>
+                  <option [ngValue]="5.0">5.0</option>
+                  <option [ngValue]="4.5">4.5</option>
+                  <option [ngValue]="4.0">4.0</option>
+                  <option [ngValue]="3.5">3.5</option>
+                  <option [ngValue]="3.0">3.0</option>
+                  <option [ngValue]="2.0">2.0</option>
+                </select>
+                <button class="btn-add-grade" (click)="assignGrade(student.id)">+ Wstaw</button>
+              </div>
+            </td>
+          </tr>
+
+          <tr *ngIf="enrolledStudents.length === 0">
+            <td colspan="3" style="text-align: center; color: #888; padding: 30px;">
+              Dziennik jest pusty. Dodaj ucznia za pomocą paska poniżej.
+            </td>
+          </tr>
+
+          <tr class="action-row">
+            <td colspan="2">
+              <select [(ngModel)]="selectedStudentToAdd" class="inline-select" style="width: 100%; max-width: 400px;">
+                <option [ngValue]="null" disabled selected>-- Wybierz ucznia z bazy uczelni --</option>
+                <option *ngFor="let stud of allStudents" [ngValue]="stud.id">
+                  {{ stud.name ? stud.name : stud.username }} ({{ stud.email || 'brak maila' }})
+                </option>
+              </select>
+            </td>
+            <td>
+              <button class="btn-add-student" (click)="addStudentToSubject()">Dopisz do przedmiotu</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="dashboard-container">
+  
+  <div class="navbar">
+    <h2>E-Dziennik | Panel Studenta</h2>
+    <button class="btn-danger" (click)="logout()">Wyloguj się</button>
+  </div>
+
+  <div class="content-wrapper">
+    
+    <div class="enroll-card">
+      <h3>Dołącz do nowego przedmiotu</h3>
+      <p>Wpisz unikalne hasło podane przez prowadzącego, aby uzyskać dostęp do materiałów i ocen.</p>
+      
+      <div class="input-group">
+        <input [(ngModel)]="enrollPassword" type="text" class="form-control" placeholder="Wprowadź hasło przedmiotu...">
+        <button class="btn-success" (click)="enroll()">Zapisz się</button>
+      </div>
+    </div>
+
+    <h3 class="section-title">Twoje Przedmioty ({{ mySubjects.length }})</h3>
+    
+    <div *ngIf="mySubjects.length === 0" class="empty-state">
+      Nie jesteś jeszcze zapisany na żaden przedmiot.
+    </div>
+
+    <div class="subject-list">
+      
+      <div *ngFor="let sub of mySubjects" class="subject-card">
+        
+        <div class="subject-header">
+          <div>
+            <h3>{{ sub.name }}</h3>
+            <p>{{ sub.description || 'Brak opisu przedmiotu' }}</p>
+          </div>
+          <div class="teacher-badge">
+            <span>Prowadzący:</span>
+            <strong>
+              {{ sub.teacher?.name ? sub.teacher.name : (sub.teacher?.username || 'Nieznany') }}
+            </strong>
+          </div>
+        </div>
+
+        <div class="grades-section">
+          <span class="grades-label">Twoje oceny:</span>
+          
+          <span *ngFor="let grade of myGrades[sub.id]" class="grade-pill">
+            {{ grade.value | number:'1.1-1' }}
+          </span>
+
+          <span *ngIf="!myGrades[sub.id] || myGrades[sub.id].length === 0" class="empty-grades">
+            Brak wystawionych ocen
+          </span>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>
